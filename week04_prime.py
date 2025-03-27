@@ -19,3 +19,4 @@ if is_prime(n):
     print(f"{n}는(은) 소수입니다.")
 else:
     print(f"{n}는(은) 소수가 아닙니다!")
+    """w"""

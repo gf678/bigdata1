@@ -15,3 +15,4 @@ if is_prime:
     print(f"{number}는(은) 소수입니다.")
 else:
     print(f"{number}는(은) 소수가 아닙니다!")
+    """w"""
