@@ -1,7 +1,8 @@
 def get_menu_text(drinks, prices):
-    menu_text = ""
-    for i in range(len(drinks)):
-        menu_text += f"{i+1}) {drinks[i]} {prices[i]}원  "
+    #menu_text = ""
+    # for i in range(len(drinks)):
+    #     menu_text += f"{i+1}) {drinks[i]} {prices[i]}원  "
+    menu_text ="".join([f"{i+1}) {drinks[i]} {prices[i]}원  " for i in range(len(drinks))])
     menu_text += f"{len(drinks)+1}) 주문 종료 >> "
     return menu_text
 
