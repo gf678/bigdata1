@@ -4,12 +4,12 @@ def get_menu_text(drinks , prices):
     #     menu_text += f"{i+1}) {drinks[i]} {prices[i]}원  "
     menu_text= "=======================\n"
     menu_text +="\n".join([f"{i+1}) {drinks[i]} {prices[i]}원  " for i in range(len(drinks))])
-    menu_text += f"\n{len(drinks)+1}) 주문 종료 "
+    menu_text += f"\n{len(drinks)+1}) 주문 종료 \n"
     return menu_text
 
 
-def choice_menu(menu: int, totalPrice :int ) ->tuple[int, bool]:
-    if menu.isdigit():  # 숫자인지 확인
+def choice_menu(menu: str, totalPrice :int ) ->tuple[int, bool]:
+    try:
         nMenu = int(menu)
         if 1 <= nMenu <= len(drinks):
             index = nMenu - 1
@@ -22,7 +22,7 @@ def choice_menu(menu: int, totalPrice :int ) ->tuple[int, bool]:
             return totalPrice, True  # 주문 종료
         else:
             print(f"{menu}번은 없는 메뉴입니다.")
-    else:
+    except ValueError:
         print("숫자로 입력해주세요.")
 
     return totalPrice, False
