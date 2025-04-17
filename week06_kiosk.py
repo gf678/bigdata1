@@ -2,8 +2,9 @@ def get_menu_text(drinks, prices):
     #menu_text = ""
     # for i in range(len(drinks)):
     #     menu_text += f"{i+1}) {drinks[i]} {prices[i]}원  "
-    menu_text ="".join([f"{i+1}) {drinks[i]} {prices[i]}원  " for i in range(len(drinks))])
-    menu_text += f"{len(drinks)+1}) 주문 종료 >> "
+    menu_text= "=======================\n"
+    menu_text +="\n".join([f"{i+1}) {drinks[i]} {prices[i]}원  " for i in range(len(drinks))])
+    menu_text += f"\n{len(drinks)+1}) 주문 종료 "
     return menu_text
 
 
@@ -38,6 +39,7 @@ while True:
     totalPrice, is_done = choice_menu(menu, totalPrice)
     if is_done:
         break
+
 print(f"{'상품명':^20}{'단가':^6}{'수량':^6}{'금액':^10}")
 for i in range(len(drinks)):
     if amount[i] <=0:
