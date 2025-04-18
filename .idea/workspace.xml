@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58e1ffc3-4dcd-4c8f-b2e5-fc731850f4ca" name="변경" comment="week06">
+      <change afterPath="$PROJECT_DIR$/kiosk.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week09_kiosk.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week01_hello.py" beforeDir="false" afterPath="$PROJECT_DIR$/week01_hello.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,18 +47,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.week01_hello.executor&quot;: &quot;Run&quot;,
-    &quot;Python.week03_prime.executor&quot;: &quot;Run&quot;,
-    &quot;Python.week05_prime.executor&quot;: &quot;Run&quot;,
-    &quot;Python.week06_kiosk.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/bigData&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.kiosk.executor": "Run",
+    "Python.temp.executor": "Run",
+    "Python.week01_hello.executor": "Run",
+    "Python.week03_prime.executor": "Run",
+    "Python.week05_prime.executor": "Run",
+    "Python.week06_kiosk.executor": "Run",
+    "Python.week09_kiosk.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/bigData"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\bigData" />
@@ -170,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744255324808</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="week06">
+      <option name="closed" value="true" />
+      <created>1744853081248</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1744853081248</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
