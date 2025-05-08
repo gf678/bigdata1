@@ -1,9 +1,9 @@
-import kiosk
+from kiosk import result_Receipt, get_menu_text ,drinks ,prices ,choice_menu ,totalPrice
 
 while True:
-    menu = input(kiosk.get_menu_text(kiosk.drinks,kiosk.prices)) #숫자넣기
-    totalPrice, is_done = kiosk.choice_menu(menu, kiosk.totalPrice)
+    menu = input(get_menu_text(drinks,prices)) #숫자넣기
+    totalPrice, is_done = choice_menu(menu, totalPrice)
     if is_done:
         break
 
-kiosk.result_Receipt(kiosk.totalPrice[0])
+result_Receipt(totalPrice)
