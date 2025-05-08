@@ -6,10 +6,25 @@ menu_text = ""
 
 DISCOUNT_THRESHOLD = 10000 #const
 DISCOUNT_RATE = 0.1 #할인율
+
 def apply_discount(total: int) ->float:
     if total >=DISCOUNT_THRESHOLD:
         return  total*(1-DISCOUNT_RATE)
     return total
+
+def get_ticket_number() -> int:
+    try:
+        with open("ticket.txt","r") as fp:
+            number = int(fp.read())
+    except FileNotFoundError:
+        number=0
+
+    number=number+1
+
+    with open("ticket.txt","w") as fp:
+        fp.write(str(number))
+
+    return number
 
 def get_menu_text(drinks , prices):
     #menu_text = ""
@@ -54,6 +69,7 @@ def result_Receipt(totalPrice):
         print(f"총 가격:{totalPrice}")
         print(f"할인 금액:{discount}")
         print(f"할인 적용후 지불하실 금액:{discount_price}")
+        print(f"번호표:{get_ticket_number()}")
     else:
         print(f"할인이 적용되지 않았습니다.")
         print(f"총 가격:{totalPrice}")

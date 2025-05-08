@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58e1ffc3-4dcd-4c8f-b2e5-fc731850f4ca" name="변경" comment="week06">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kiosk.py" beforeDir="false" afterPath="$PROJECT_DIR$/kiosk.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/week09_kiosk.py" beforeDir="false" afterPath="$PROJECT_DIR$/week09_kiosk.py" afterDir="false" />
@@ -210,7 +211,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/kiosk.py</url>
-          <line>13</line>
+          <line>28</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
