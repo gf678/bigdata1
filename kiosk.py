@@ -1,11 +1,14 @@
+from  datetime import datetime
+import sqlite3
+
 drinks = ["아이스 아메리카노","카페 라떼","커피","카푸치노","샌즈 커피"]
 prices=[1500,2500,1000,3000,5000]
 amount = [0] * len(drinks)
 totalPrice=0
-menu_text = ""
 
 DISCOUNT_THRESHOLD = 10000 #const
 DISCOUNT_RATE = 0.1 #할인율
+
 
 def apply_discount(total: int) ->float:
     if total >=DISCOUNT_THRESHOLD:
@@ -26,7 +29,33 @@ def get_ticket_number() -> int:
 
     return number
 
-def get_menu_text(drinks , prices):
+def print_ticket_number() -> None:
+    conn =sqlite3.connect('cafe.db')
+    cur =conn.cursor()
+    cur.execute('''
+        create table if not exists ticket (
+        id integer primary key autoincrement,
+        number integer not null,
+        created_at text not null default (datetime('now', 'localtime'))
+        )
+    ''')
+
+    cur.execute('select number from ticket order by number desc limit 1')
+    result = cur.fetchone()
+
+    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    if result is None:
+        number = 1
+        cur.execute('insert into ticket (number, created_at) values (?, ?)', (number, now))
+    else:
+        number = result[0] + 1
+        # cur.execute('update ticket set number=? where id = (select id from ticket order by number desc limit 1)', (number,))
+        cur.execute('insert into ticket (number, created_at) values (?, ?)', (number, now))
+
+    conn.commit()
+    print(f"번호표 : {number} ({now})")
+
+def get_menu_text() ->str:
     #menu_text = ""
     # for i in range(len(drinks)):
     #     menu_text += f"{i+1}) {drinks[i]} {prices[i]}원  "
@@ -35,26 +64,28 @@ def get_menu_text(drinks , prices):
     menu_text += f"\n{len(drinks)+1}) 주문 종료 \n"
     return menu_text
 
-def choice_menu(menu: str, totalPrice :int ) ->tuple[int, bool]:
-    try:
-        nMenu = int(menu)
-        if 1 <= nMenu <= len(drinks):
-            index = nMenu - 1
-            amount[index] += 1
-            print(f"{drinks[index]}를 주문하셨습니다. 가격은 {prices[index]}원 입니다. {amount[index]}개 주문하셨습니다.\n")
-            totalPrice += prices[index]
-            return totalPrice, False  # 계속 주문
-        elif nMenu == len(drinks) + 1:
-            print("주문을 종료합니다.")
-            return totalPrice, True  # 주문 종료
-        else:
-            print(f"{menu}번은 없는 메뉴입니다.")
-    except ValueError:
-        print("숫자로 입력해주세요.")
+def run() ->None:
+    while True:
+        try:
+            menu = int(input(get_menu_text()))
+            if 1 <= menu <= len(drinks):
+                order_process(menu-1)
+            elif menu == len(drinks) + 1:
+                print("주문을 종료합니다.")
+                break
+            else:
+                print(f"{menu}번은 없는 메뉴입니다.")
+        except ValueError:
+            print("숫자로 입력해주세요.")
 
-    return totalPrice, False
 
-def result_Receipt(totalPrice):
+def order_process(index:int) ->None:
+    global totalPrice
+    print(f"{drinks[index]}를 주문하셨습니다. 가격은 {prices[index]}원 입니다")
+    totalPrice = totalPrice + prices[index]
+    amount[index] = amount[index] + 1
+
+def result_receipt() ->None:
     print(f"{'상품명':^20}{'단가':^6}{'수량':^6}{'금액':^10}")
     for i in range(len(drinks)):
         if amount[i] <= 0:
@@ -73,4 +104,6 @@ def result_Receipt(totalPrice):
     else:
         print(f"할인이 적용되지 않았습니다.")
         print(f"총 가격:{totalPrice}")
+    print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+
 
