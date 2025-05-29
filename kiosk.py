@@ -100,7 +100,6 @@ def result_receipt() ->None:
         print(f"총 가격:{totalPrice}")
         print(f"할인 금액:{discount}")
         print(f"할인 적용후 지불하실 금액:{discount_price}")
-        print(f"번호표:{get_ticket_number()}")
     else:
         print(f"할인이 적용되지 않았습니다.")
         print(f"총 가격:{totalPrice}")

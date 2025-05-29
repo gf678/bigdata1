@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58e1ffc3-4dcd-4c8f-b2e5-fc731850f4ca" name="변경" comment="week06">
-      <change afterPath="$PROJECT_DIR$/week11_kiosk.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week13_kiosk.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kiosk.py" beforeDir="false" afterPath="$PROJECT_DIR$/kiosk.py" afterDir="false" />
     </list>
@@ -57,10 +57,13 @@
     "Python.week06_kiosk.executor": "Run",
     "Python.week09_kiosk.executor": "Run",
     "Python.week11_kiosk.executor": "Run",
+    "Python.week13_kiosk.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/bigData"
+    "last_opened_file_path": "D:/bigData",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
