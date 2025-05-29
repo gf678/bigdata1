@@ -1,5 +1,6 @@
 from  datetime import datetime
 import sqlite3
+import requests
 
 drinks = ["아이스 아메리카노","카페 라떼","커피","카푸치노","샌즈 커피"]
 prices=[1500,2500,1000,3000,5000]
@@ -59,7 +60,8 @@ def get_menu_text() ->str:
     #menu_text = ""
     # for i in range(len(drinks)):
     #     menu_text += f"{i+1}) {drinks[i]} {prices[i]}원  "
-    menu_text= "=======================\n"
+    menu_text= get_weather_info()
+    menu_text+= "\n=======================\n"
     menu_text +="\n".join([f"{i+1}) {drinks[i]} {prices[i]}원  " for i in range(len(drinks))])
     menu_text += f"\n{len(drinks)+1}) 주문 종료 \n"
     return menu_text
@@ -105,4 +107,18 @@ def result_receipt() ->None:
         print(f"총 가격:{totalPrice}")
     print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
-
+def get_weather_info() -> str:
+    url = f"https://wttr.in/london?format=2"
+    # url = f"https://wttr.in/london?format=%C+%t&lang=ko"
+    # url = f"https://naver.com/kim"
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            #print(response.text.strip())
+            return response.text.strip()
+        else:
+            #print(f"상태 코드 :{response.status_code}")
+            return f"상태 코드 :{response.status_code}"
+    except Exception as err:
+        #print(f"오류 : {err}")
+        return f"오류 : {err}"
